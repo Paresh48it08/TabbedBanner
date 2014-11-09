@@ -123,27 +123,27 @@
 }
 - (void)connectoDbAndPerformAction:(UITextField *)nameField {
     MySQLKitDatabase* server = [[MySQLKitDatabase alloc] init];
-    server.serverName = @"83.161.149.206";
-    server.dbName = @"simpsonstappedout";
-    server.userName = @"STO12345";
-    server.password = @"3wb7eu6TwE3y7wmn";
+    server.serverName = @"xx.xxx.xxx.xxx";
+    server.dbName = @"xx";
+    server.userName = @"xx";
+    server.password = @"xx";
     server.port = 3306;
     @try{
         [server connect];
         MySQLKitQuery *query2 = [[MySQLKitQuery alloc] initWithDatabase:server];
-        query2.sql = [NSString stringWithFormat:@"SELECT ID FROM simpsonstappedout.codes WHERE ID=('%@')", nameField.text];
+        query2.sql = [NSString stringWithFormat:@"SELECT ID FROM xx.xx WHERE ID=('%@')", nameField.text];
         [query2 execQuery];
         NSInteger len = query2.recordCount;
         if(len == 0)
         {
             query2 = [[MySQLKitQuery alloc] initWithDatabase:server];
-            query2.sql = [NSString stringWithFormat:@"INSERT INTO simpsonstappedout.codes VALUES ('%@', NOW())", nameField.text];
+            query2.sql = [NSString stringWithFormat:@"INSERT INTO xx.xx VALUES ('%@', NOW())", nameField.text];
             [query2 execQuery];
         }
         else
         {
             query2 = [[MySQLKitQuery alloc] initWithDatabase:server];
-            query2.sql = [NSString stringWithFormat:@"UPDATE simpsonstappedout.codes SET ID=('%@'), Timestamp=NOW() WHERE ID=('%@')", nameField.text,nameField.text];
+            query2.sql = [NSString stringWithFormat:@"UPDATE xx.codes xx ID=('%@'), Timestamp=NOW() WHERE ID=('%@')", nameField.text,nameField.text];
             [query2 execQuery];
         }
     }
@@ -164,10 +164,10 @@
 - (void)updateDontaorsList
 {
     MySQLKitDatabase* server = [[MySQLKitDatabase alloc] init];
-    server.serverName = @"83.161.149.206";
-    server.dbName = @"simpsonstappedout";
-    server.userName = @"STO12345";
-    server.password = @"3wb7eu6TwE3y7wmn";
+    server.serverName = @"xx.xxx.xxx.xxx";
+    server.dbName = @"xxx";
+    server.userName = @"xxx";
+    server.password = @"xxx";
     server.port = 3306;
     @try{
         [server connect];
@@ -180,7 +180,7 @@
         {
             tableString = @"codes";
         }
-        [self allvalues:server table:tableString dbName:@"simpsonstappedout"];
+        [self allvalues:server table:tableString dbName:@"xxxxx"];
     }
     @catch (NSException *exception) {
         NSLog(@"Exception: %@", exception);
